@@ -24,7 +24,7 @@ public class Main {
     private static void printUserInfo(){
         System.out.println(NAME);
         System.out.println(DATE);
-
+        System.out.println();
     }
 
     private static int getValidUserInput(){
@@ -67,21 +67,45 @@ public class Main {
 
     private static int castBonusDice(){
         bonusDiceRound++;
+        int localBonusRound = bonusDiceRound;
         int sum = 0;
+        System.out.println("Bonus!you get a six!This is the "+ localBonusRound+" bonus!");
+        System.out.println("Current sum is: "+sum);
+        System.out.println();
+        //System.out.println("Current sum is: "+sum);
         for(int bonusDiceIndex = 1; bonusDiceIndex <= 2; bonusDiceIndex++){
-            //System.out.println("Bonus dice round: "+bonusDiceRound+" And Dice number is: "+bonusDiceIndex);
+
             int randomDice = (int) Math.floor(Math.random()*6 +1);
-            System.out.println("The "+bonusDiceRound+" bonus dice group,and "+ bonusDiceIndex+" dice get "+ randomDice);
+
             if(randomDice == 6){
-                System.out.println("Recursive");
+                System.out.println("The "+bonusDiceIndex +" dice on "+localBonusRound+" bonus is "+randomDice);
                 sum += castBonusDice();
-               // System.out.println("The "+bonusDiceRound+" bonus dice group,and "+ bonusDiceIndex+" dice get "+ randomDice);
-            }else{
+                //System.out.println("Sum after "+localBonusRound+" bonus, and "+bonusDiceIndex+" dice is: "+sum);
+                System.out.println("Current sum is: "+sum);
+                System.out.println();
+            }else {
                 sum += randomDice;
-                //System.out.println("The ->"+bonusDiceRound+" bonus dice group,and "+ bonusDiceIndex+" dice get "+ randomDice);
+                System.out.println("The "+bonusDiceIndex +" dice on "+localBonusRound+" bonus is "+randomDice);
+                //System.out.println("Sum after "+bonusDiceIndex +" dice on "+localBonusRound+" bonus is "+sum);
+                System.out.println("Current sum is: "+sum);
+                System.out.println();
             }
+
         }
-        System.out.println("The total "+bonusDiceRound+" bonus dice group,and sum is: "+sum);
+        //System.out.println();
+       // System.out.println("Sum for "+bonusDiceRound+" bonus is"+ sum);
+       // System.out.println();
         return sum;
     }
+   /*
+    private int cast(int diceNumber) {
+        for (int i = 1; i <= diceNumber; i++) {
+            System.out.println("Recursive on " + i + " dice");
+            int randomDice = (int) Math.floor(Math.random()*6 +1);
+
+            if (randomDice = 6) {}
+        }
+    }
+    */
+
 }
