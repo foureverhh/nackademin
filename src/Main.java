@@ -11,7 +11,6 @@ public class Main {
     private static int bonusDiceRound = 0;
 
     public static void main(String[] args) {
-
         System.out.println();
         printUserInfo();
         play();
@@ -22,7 +21,6 @@ public class Main {
         System.out.println("Antalet du har vålt är: "+castAmount);
         System.out.println();
         castDice(castAmount);
-        //sum += castBonusDice();
         System.out.println();
         System.out.println("Summan totalt är: "+sum);
         restart();
@@ -101,17 +99,24 @@ public class Main {
         return sum;
     }
 
-    private static void restart(){
+    //To restart game
+    private static void restart() {
         System.out.println();
         System.out.println("Vill du starta programmet om?(Y/N)");
-        Scanner sc = new Scanner(System.in);
-        String userInput = sc.nextLine();
-        if(userInput.toUpperCase().equals("Y")){
-            sum = 0;
-            bonusDiceRound =0;
-            play();
-        }else {
-            System.exit(0);
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            String userInput = sc.nextLine().trim();
+            if (userInput.toUpperCase().equals("Y")) {
+                sum = 0;
+                bonusDiceRound = 0;
+                play();
+                break;
+            } else if (userInput.toUpperCase().equals("N")) {
+                System.out.println("Hej då!");
+                System.exit(0);
+            } else {
+                System.out.println("Input Y or N,pls");
+            }
         }
     }
 }
