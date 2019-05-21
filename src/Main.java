@@ -120,3 +120,7 @@ public class Main {
         }
     }
 }
+
+class SmallerThanZeroOrBiggerThanFiveException  extends Exception{
+
+}
